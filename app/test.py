@@ -16,7 +16,7 @@ _, probs = model.detect_language(mel)
 print(f"Detected language: {max(probs, key=probs.get)}")
 
 # 音声の解読
-options = whisper.DecodingOptions()
+options = whisper.DecodingOptions(fp16 = False)
 result = whisper.decode(model, mel, options)
 
 # 認識したテキストの出力
